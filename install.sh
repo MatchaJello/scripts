@@ -53,7 +53,7 @@ sudo dnf install eog -y
 sudo dnf install fastfetch -y
 
 # Geany
-flatpak install flathub org.geany.Geany
+flatpak install flathub org.geany.Geany -y
 
 # Htop
 sudo dnf install htop -y
@@ -74,19 +74,12 @@ make install
 cd ..
 sudo rm -rf blur-my-shell
 
-# Install Caffeine extension
-git clone https://github.com/eonpatapon/gnome-shell-extension-caffeine.git
-cd caffeine
-make install
-cd .. 
-sudo rm -rf caffeine
-
 # Install Hide Uiversal Access extension
 git clone https://github.com/akiirui/hide-universal-access.git
 cd hide-universal-access
 make install
 cd ..
-sudo rm -rf hide-universal access
+sudo rm -rf hide-universal-access
 
 # Install Space Bar extension
 git clone https://github.com/christopher-l/space-bar.git
@@ -97,7 +90,7 @@ npm install
 ./build.sh
 
 # Install Upower battery extension
-cd cd ~/.local/share/gnome-shell/extensions
+cd ~/.local/share/gnome-shell/extensions
 git clone https://github.com/codilia/upower-battery.git upower-battery@codilia.com
 
 # Install Vitals extension
@@ -105,7 +98,18 @@ sudo dnf install libgtop2-devel lm_sensors -y
 cd ~/.local/share/gnome-shell/extensions
 git clone https://github.com/corecoding/Vitals.git ~/.local/share/gnome-shell/extensions/Vitals@CoreCoding.com -b develop
 
+# Install Caffeine extension
+git clone https://github.com/eonpatapon/gnome-shell-extension-caffeine.git
+cd gnome-shell-extension-caffeine
+make build
+make install
+cd .. 
+sudo rm -rf gnome-shell-extension-caffeine
+
 # Add day of week to gnome title bar
 gsettings set org.gnome.desktop.interface clock-show-weekday true
+
+# Change dark theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 
